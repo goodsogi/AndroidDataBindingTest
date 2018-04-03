@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="loginModel" type="com.plusapps.androiddatabingtest.LoginModel"/>
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--android:addTextChangedListener="@{loginModel.onTextChanged}"-->
+        <!--이런 식으로 TextWatcher를 달 수 있음-->
+        <!--android:onFocusChange="@{loginModel.onFocusChanged}"-->
+        <!--로 FocusChangeListener를 달 수 있음-->
+
+        <EditText android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:addTextChangedListener="@{loginModel.onTextChanged}"
+                  android:onFocusChange="@{loginModel.onFocusChanged}"
+                  />
+        <EditText android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:addTextChangedListener="@{loginModel.onTextChanged}"
+        />
+        <Button android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:enabled="@{loginModel.isEnabled}"
+        android:text="테스트"
+        />
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> loginModel.setIsEnabled()}"
+                android:text="토글"
+        />
+
+        <TextView
+            android:id="@+id/userInputDisplay"
+
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+         android:text="@{loginModel.userInput}"
+        />
+    </LinearLayout>
+</layout>
